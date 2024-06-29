@@ -1,0 +1,224 @@
+fibery:
+  url: https://gratitudelounge.fibery.io
+  spaces:
+    - name: Custom Venue Website
+      databases:
+        - name: CMS
+          description: Manages content updates, blogs, and announcements
+          fields:
+            - title: Page Title, required
+            - content: Rich Text, including images and videos, required
+            - author: User Reference, optional
+            - publish_date: Date, auto-populated
+            - seo_keywords: List of Keywords, for search optimization
+            - status: Enum (Draft, Published, Archived), default Draft
+            - last_modified: DateTime, auto-updated on change
+        - name: Ticket Purchase
+          description: Processes ticket sales, refunds, and transactions
+          fields:
+            - event_id: Event Reference, required
+            - purchaser: User Reference, required
+            - ticket_type: Enum (VIP, General, Early Bird), required
+            - purchase_date: Date, auto-populated
+            - status: Enum (Purchased, Refunded, Pending), default Purchased
+            - payment_method: Enum (Credit Card, PayPal, Stripe)
+            - discount_code: Text, optional, for promotional use
+            - transaction_id: Text, unique identifier for each purchase
+        - name: Venue Calendar
+          description: Displays event schedules and availability
+          fields:
+            - event_name: Text, required
+            - date: Date, required
+            - time: Time, required
+            - status: Enum (Confirmed, Tentative, Canceled)
+            - location: Text, optional
+            - repeat_frequency: Enum (None, Daily, Weekly, Monthly)
+            - public_visibility: Boolean, default true
+        - name: Website
+          description: Manages overall site structure and user navigation
+          fields:
+            - url: Text, required, format URL
+            - layout: Enum (Homepage, Event Page, Blog Page)
+            - last_updated: Date, auto-updated
+            - analytics: JSON, for tracking site performance
+            - mobile_friendly: Boolean, default true
+    - name: Marketing Management
+      databases:
+        - name: Audience Engagement
+          description: Tracks user interactions and engagement metrics
+          fields:
+            - campaign_id: Campaign Reference, required
+            - user_id: User Reference, required
+            - engagement_type: Enum (Like, Share, Comment, View)
+            - timestamp: DateTime, auto-populated
+            - platform: Enum (Facebook, Instagram, Email, Twitter)
+            - engagement_score: Integer, calculated
+            - demographics: JSON, for user analysis
+        - name: Campaigns
+          description: Plans and monitors marketing campaigns and promotions
+          fields:
+            - name: Campaign Name, required
+            - start_date: Date, required
+            - end_date: Date, required
+            - budget: Currency, optional
+            - platform: Enum (Facebook, Instagram, Email, Google Ads)
+            - performance_metrics: JSON, for tracking effectiveness
+            - goals: Text, outlining campaign objectives
+    - name: Calendar Management
+      databases:
+        - name: Calendar Event
+          description: Comprehensive scheduling for all venue events
+          fields:
+            - event_name: Text, required
+            - organizer: User Reference, optional
+            - start_time: DateTime, required
+            - end_time: DateTime, required
+            - location: Text, optional
+            - reminders: List of DateTime, for notifications
+            - booking_notes: Rich Text, additional information
+    - name: Booking Request Management
+      databases:
+        - name: Booking Request
+          description: Manages incoming booking requests from artists and clients
+          fields:
+            - requester: User Reference, required
+            - requested_date: Date, required
+            - event_type: Enum (Concert, Private Event, Workshop)
+            - status: Enum (Pending, Approved, Declined)
+            - special_requirements: Text, optional
+            - follow_up_date: Date, for reminders
+    - name: Pipeline Management
+      databases:
+        - name: Artist
+          description: Details of artists for potential bookings
+          fields:
+            - name: Artist Name, required
+            - genre: Enum (Rock, Pop, Jazz, Electronic, Hip Hop)
+            - contact_info: Text, required
+            - social_media_links: List of URLs, optional
+            - past_performances: List of Event References
+            - rating: Integer, based on feedback
+        - name: Follow Up Schedule
+          description: Tracks follow-up tasks and reminders
+          fields:
+            - task_name: Text, required
+            - due_date: Date, required
+            - assigned_to: User Reference, optional
+            - priority: Enum (Low, Medium, High, Critical)
+            - status: Enum (Pending, Completed)
+        - name: Offer
+          description: Offers extended to artists and performers
+          fields:
+            - artist_id: Artist Reference, required
+            - amount: Currency, required
+            - status: Enum (Accepted, Rejected, Pending)
+            - offer_date: Date, auto-populated
+            - notes: Rich Text, for additional context
+            - response_due: Date, for artist response
+        - name: Pipeline Management
+          description: Overall management of booking and offer pipeline
+          fields:
+            - stage: Enum (Prospect, Negotiation, Closed)
+            - last_contact: Date, auto-updated
+            - next_steps: Text, action items
+            - deal_value: Currency, estimated
+        - name: Settlement
+          description: Post-event financial settlements
+          fields:
+            - event_id: Event Reference, required
+            - amount_paid: Currency, auto-calculated
+            - due_date: Date, required
+            - payment_status: Enum (Paid, Pending)
+            - settlement_notes: Rich Text, for additional details
+            - payment_method: Enum (Bank Transfer, Check, Cash)
+    - name: Artist Discovery
+      databases:
+        - name: Artist
+          description: Repository of artists with discovery status
+          fields:
+            - artist_name: Text, required
+            - discovery_date: Date, auto-populated
+            - discovered_by: User Reference, optional
+            - genre: Enum (Rock, Pop, Jazz, Electronic, Hip Hop)
+            - potential_rating: Integer, based on criteria
+            - notes: Rich Text, for additional information
+    - name: Feedback
+      databases:
+        - name: Interview
+          description: Collects feedback through structured interviews
+          fields:
+            - participant: User Reference, required
+            - date: Date, required
+            - feedback: Rich Text, detailed input
+            - interviewer: User Reference, optional
+            - rating: Integer, for quick assessment
+        - name: Web
+          description: Manages online reviews and ratings
+          fields:
+            - source: Enum (Google, Facebook, Yelp, TripAdvisor)
+            - rating: Integer, 1 to 5 stars
+            - review: Rich Text, detailed content
+            - date: Date, auto-populated
+            - reviewer: User Reference, optional
+            - response_status: Enum (Responded, Not Responded)
+    - name: Ticketing
+      databases:
+        - name: Tickets
+          description: Manages ticket inventory and distribution
+          fields:
+            - event_id: Event Reference, required
+            - ticket_number: Text, unique identifier
+            - status: Enum (Available, Sold, Reserved, Canceled)
+            - price: Currency, required
+            - seat_location: Text, optional
+            - refund_policy: Text, terms and conditions
+    - name: Profit & Loss
+      databases:
+        - name: Event
+          description: Financial overview of individual events
+          fields:
+            - event_name: Text, required
+            - revenue: Currency, auto-calculated
+            - expenses: Currency, auto-calculated
+            - net_profit: Currency, auto-calculated
+            - breakdown: JSON, detailed financial report
+            - notes: Rich Text, for explanations
+        - name: Financials
+          description: Overall financial data for the venue
+          fields:
+            - total_revenue: Currency, cumulative
+            - total_expenses: Currency, cumulative
+            - total_net_profit: Currency, cumulative
+            - monthly_summary: JSON, detailed month-by-month data
+            - annual_report: Rich Text, summary for stakeholders
+    - name: Venue Mobile App
+      databases:
+        - name: Ticket Management
+          description: Mobile platform for ticket handling
+          fields:
+            - app_version: Text, required
+            - update_date: Date, auto-updated
+            - issues_reported: Integer, count of user-reported issues
+            - features: List of Text, latest updates
+        - name: Fan Engagement
+          description: Features for fan interaction and feedback
+          fields:
+            - engagement_type: Enum (Poll, Quiz, Contest)
+            - responses: Integer, count of participations
+            - engagement_content: Rich Text, description of content
+            - start_date: Date, required
+            - end_date: Date, required
+        - name: Mobile App
+          description: Configuration and management of the mobile app
+          fields:
+            - feature_list: Text, comprehensive list of features
+            - last_updated: Date, auto-updated
+            - user_feedback: Rich Text, collected from app users
+            - crash_reports: Integer, count of crashes
+        - name: Venue Calendar
+          description: Mobile-accessible event calendar
+          fields:
+            - event_list: Text, summarized view
+            - sync_status: Enum (Synced, Pending, Failed)
+            - notifications_enabled: Boolean, default true
+            - update_frequency

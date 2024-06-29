@@ -1,0 +1,101 @@
+name: Gratitude Lounge
+former_name: Cadillac Ranch
+location: 1655 Willow Pass Road, Concord, CA 94520
+concept: >
+  A versatile venue offering lively greenhouse-like aesthetics combined with modern lounge vibes. 
+  Features draping plants, a permanent stage, and adjustable seating.
+events:
+  - name: Ritmo Wednesday's
+    date: Repeating Event
+    status: Live
+    tickets_sold: 0
+    tickets_available: 305
+  - name: Country Nights "Cadillac Ranch Style"
+    date: Saturday, June 29, 2024, 7:00 PM
+    status: Live
+    tickets_sold: 16
+    tickets_available: 197
+  - name: Van Halen Concord Pavilion After Party
+    date: Saturday, August 17, 2024, 9:00 PM
+    status: Live
+    tickets_sold: 10
+    tickets_available: -10
+  - name: Unchained - Van Halen Tribute
+    date: Saturday, November 23, 2024, 8:00 PM
+    status: Live
+    tickets_sold: 0
+    tickets_available: 0
+  - name: Laugh Lounge Thursdays
+    date: Repeating Event
+    status: Draft
+    tickets_sold: 0
+    tickets_available: 100
+equipment:
+  - name: JBL SRX828SP
+    quantity: 2
+  - name: Airten V3
+    quantity: 2
+    features:
+      - Compact high output dual 10” loudspeaker
+      - Small footprint ideal for DJ monitoring
+      - Very low enclosure resonance
+      - Focused 80°H x 80°V dispersion pattern
+      - Space saving coaxial MF/HF driver
+      - Fibreglass composite construction
+      - Smooth cellulose finish
+      - Integrated mounting plate
+    applications:
+      - High impact nightclubs
+      - Bar, club, lounge
+      - DJ monitoring
+  - name: Air Motion
+    quantity: 2
+    features:
+      - Three-way, bi-amped sculpted loudspeaker array
+      - Exceptionally linear frequency and phase characteristics
+      - Low resonance fibreglass composite construction
+      - Integrated flying and mounting system
+      - Optional floor stand or flying bracket
+      - Internal electronic HF protection
+    applications:
+      - High impact nightclub
+      - VIP room
+      - Bar, club, lounge
+      - Live music venues
+facilities:
+  stage: Permanent fixture, adaptable for concerts, DJ performances, and comedy shows
+  seating: Flexible arrangements tailored to event requirements
+  sound_system: High-quality audio equipment for diverse performances
+  lighting: Dynamic, state-of-the-art lighting setups
+design_elements:
+  greenery: Emphasis on a lush, natural environment with draping plants
+  decor: Combines rustic country elements with modern aesthetics for varied event themes
+mascot: >
+  'T,' the Treble Maker - mischievous, embodying the party spirit
+purpose: >
+  To create a dynamic space for music, dance, comedy, and artistic events. 
+  Foster community and creativity through a blend of nature and entertainment.
+technology:
+  venue_management_system: Custom Fibery.io workspace
+  ai_integration: SPARK for enhanced creative experiences
+additional_information:
+  special_features: >
+    Line dance instructors, singles nights, dance competitions, and vibrant salsa events enhance the experience
+marketing_and_promotion: >
+  Prominent channels include social media and event platforms. Focus on community engagement and thematic event promotion.
+tags_and_categories:
+  - United States Events
+  - California Events
+  - Things to do in Concord, CA
+  - Concord Performances
+  - Concord Music Performances
+  - "#concert"
+  - "#music"
+  - "#entertainment"
+  - "#livemusic"
+  - "#gratitude"
+  - "#coverband"
+  - "#concord"
+  - "#vanhalen"
+  - "#livemusicvenue"
+  - "#sammyhagar"
